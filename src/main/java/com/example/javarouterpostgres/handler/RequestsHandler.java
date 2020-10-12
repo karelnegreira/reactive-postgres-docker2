@@ -22,6 +22,10 @@ public class RequestsHandler {
         this.repository = repository;
     }
 
+    public RequestsHandler() {
+
+    }
+
     public Mono<ServerResponse> getEstudiantes(ServerRequest request) {
         return ok().contentType(MediaType.APPLICATION_JSON)
                 .body(fromPublisher(repository.findAll(), Estudiantes.class));
